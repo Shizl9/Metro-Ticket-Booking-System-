@@ -7,7 +7,7 @@ namespace MetroBookingSystem
     {
         static void Main(string[] args)
         {
-            // إنشاء object من DbContext
+            // إنشاء object من DbContextt:
             AppDbContext context = new AppDbContext();
 
             //==========اضافة stations==========
