@@ -11,7 +11,7 @@ namespace MetroBookingSystem
             AppDbContext context = new AppDbContext();
 
             //==========اضافة stations==========
-            Station station1 = new Station { Name = "Makkah Station", Location= "King Abdulaziz Road, Makkah." };
+            Station station1 = new Station { Name = "Makkah Station", Location = "King Abdulaziz Road, Makkah." };
             Station station2 = new Station { Name = "Jeddah Central Station", Location = " Haramain Expressway, Jeddah." };
             Station station3 = new Station { Name = "KAEC Station", Location = "King Abdullah Economic City, Rabigh." };
             // إضافة المحطات إلى DB
@@ -31,6 +31,21 @@ namespace MetroBookingSystem
             context.SaveChanges();
 
             Console.WriteLine("Stations and Trains Added!");
+
+            //==========اضافة Tickets==========
+            Ticket ticket1 = new Ticket { PassengerName = "Ahmed Al-Farsi", Price = 25,
+                TravelDate = DateTime.Now, TrainId = train1.Id, StationId = station1.Id };
+            Ticket ticket2 = new Ticket { PassengerName = "Sara Al-Harbi", Price = 30,
+                TravelDate = new DateTime(2026,6,12), TrainId = train2.Id, StationId = station2.Id };
+            Ticket ticket3 = new Ticket { PassengerName = "Omar Al-Mutairi", Price = 20,
+                TravelDate = new DateTime(2026,7,5), TrainId = train3.Id, StationId = station3.Id };
+
+            context.Tickets.Add(ticket1);
+            context.Tickets.Add(ticket2);
+            context.Tickets.Add(ticket3);
+            context.SaveChanges();
+
+
         }
     }
 }
