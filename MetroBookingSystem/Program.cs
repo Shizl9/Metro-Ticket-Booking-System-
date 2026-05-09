@@ -40,10 +40,16 @@ namespace MetroBookingSystem
                 TravelDate = new DateTime(2026,6,12), TrainId = train2.Id, StationId = station2.Id };
             Ticket ticket3 = new Ticket { PassengerName = "Omar Al-Mutairi", Price = 20,
                 TravelDate = new DateTime(2026,7,5), TrainId = train3.Id, StationId = station3.Id };
+            Ticket ticket4 = new Ticket { PassengerName = "Laila Al-Shehri", Price = 15,
+                TravelDate = new DateTime(2026,8,20), TrainId = train1.Id, StationId = station2.Id };
+            Ticket ticket5 = new Ticket { PassengerName = "Faisal Al-Qahtani", Price = 35,
+                TravelDate = new DateTime(2026,9,10), TrainId = train2.Id, StationId = station3.Id };
 
             context.Tickets.Add(ticket1);
             context.Tickets.Add(ticket2);
             context.Tickets.Add(ticket3);
+            context.Tickets.Add(ticket4);
+            context.Tickets.Add(ticket5);
             context.SaveChanges();
 
             Console.WriteLine("Tickets Added!");
