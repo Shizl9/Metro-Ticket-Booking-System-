@@ -88,7 +88,21 @@ namespace MetroBookingSystem
             {
                 Console.WriteLine($"{t.PassengerName} - {t.Price}");
             }
+            //cheapest ticket
+            var cheapest = context.Tickets.OrderBy(t => t.Price).FirstOrDefault();
+            Console.WriteLine($"Cheapest Ticket: {cheapest?.PassengerName} - {cheapest?.Price}");
 
+            //expensive ticket
+            var expensive = context.Tickets.OrderByDescending(t => t.Price).FirstOrDefault();
+            Console.WriteLine($"Most Expensive Ticket: {expensive?.PassengerName} - {expensive?.Price}");
+
+            //number of tickets for specific train
+            var trainStats = context.Trains.Select(t => new{TrainNumber = t.Number,TicketCount = t.Tickets.Count}).ToList();
+
+            foreach (var t in trainStats)
+            {
+                Console.WriteLine($"{t.TrainNumber} => {t.TicketCount}");
+            }
         }
     }
 }
