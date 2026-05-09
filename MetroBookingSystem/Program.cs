@@ -68,8 +68,10 @@ namespace MetroBookingSystem
             {
                 Console.WriteLine($"{t.PassengerName} - {t.Price}");
             }
+            //first ticket fo specific passenger
+            var specificTicket = context.Tickets.FirstOrDefault(t => t.PassengerName == "Sara Al-Harbi");
+            Console.WriteLine(specificTicket?.PassengerName);
 
-            
         }
     }
 }
