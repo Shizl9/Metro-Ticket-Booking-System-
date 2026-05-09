@@ -9,6 +9,7 @@ namespace MetroBookingSystem.Models
     public class Ticket
     {
         public int Id { get; set; }
+        //
         public string? PassengerName { get; set; }
         public decimal Price { get; set; }
         public DateTime TravelDate { get; set; }
