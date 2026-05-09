@@ -71,6 +71,17 @@ namespace MetroBookingSystem
             //first ticket fo specific passenger
             var specificTicket = context.Tickets.FirstOrDefault(t => t.PassengerName == "Sara Al-Harbi");
             Console.WriteLine(specificTicket?.PassengerName);
+            //number of all tickets
+            var totalTickets = context.Tickets.Count();
+            Console.WriteLine($"Total Tickets: {totalTickets}");
+
+            //order tickets by price descending
+            var ordered = context.Tickets.OrderByDescending(t => t.Price).ToList();
+
+            foreach (var t in ordered)
+            {
+                Console.WriteLine($"{t.PassengerName} - {t.Price}");
+            }
 
         }
     }
