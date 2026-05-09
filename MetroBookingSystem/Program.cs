@@ -1,5 +1,6 @@
 ﻿using MetroBookingSystem.Data;
 using MetroBookingSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MetroBookingSystem
 {
@@ -45,6 +46,10 @@ namespace MetroBookingSystem
             context.Tickets.Add(ticket3);
             context.SaveChanges();
 
+            Console.WriteLine("Tickets Added!");
+
+            //include to load related data
+            var tickets = context.Tickets.Include(t => t.Train).Include(t => t.Station).ToList();
 
         }
     }
