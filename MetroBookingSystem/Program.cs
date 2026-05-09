@@ -51,6 +51,25 @@ namespace MetroBookingSystem
             //include to load related data
             var tickets = context.Tickets.Include(t => t.Train).Include(t => t.Station).ToList();
 
+            foreach (var t in tickets)
+            {
+                // عرض بيانات التذكرة مع العلاقات
+                Console.WriteLine($"Passenger: {t.PassengerName}");
+                Console.WriteLine($"Train: {t.Train?.Number}");
+                Console.WriteLine($"Station: {t.Station?.Name}");
+                Console.WriteLine($"Price: {t.Price}");
+
+            }
+
+            //tickets price >20
+            var expensiveTickets = context.Tickets.Where(t => t.Price > 20).ToList();
+
+            foreach (var t in expensiveTickets)
+            {
+                Console.WriteLine($"{t.PassengerName} - {t.Price}");
+            }
+
+            
         }
     }
 }
