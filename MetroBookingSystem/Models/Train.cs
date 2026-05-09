@@ -11,7 +11,7 @@ namespace MetroBookingSystem.Models
         public int Id { get; set; }
         public string ?Number { get; set; }
         public int Capacity { get; set; }
-        // One Train has many Tickets
+        // 1 Train has many Tickets
         public List<Ticket>? Tickets { get; set; }
         
     }
