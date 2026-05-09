@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace MetroBookingSystem.Data
 {
-    //create a class AppDbContext that inherits from DbContext
+    
     public class AppDbContext: DbContext
     {
-        //
+        
         public DbSet<Train> Trains { get; set; }
 
         public DbSet<Station> Stations { get; set; }
